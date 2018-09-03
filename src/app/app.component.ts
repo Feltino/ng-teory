@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <div class="col-lg-8 offset-lg-2 pt-4">
     <input type="text" class="form-control" [(ngModel)]="searchCar">
+    <button class="btn btn-primary" (click)="addCar()">Добавить</button>
     <hr>
     <ul class="list-group">
       <li
@@ -24,5 +25,11 @@ export class AppComponent {
     {name: 'Audi', descr: 'WFM 4'},
     {name: 'Mercedes', descr: 'WFM 5'},
     {name: 'BMW', descr: 'WFM 6'}
-  ]
+  ];
+  addCar() {
+    this.cars.push({
+      name: 'New Car',
+      descr: 'WFM'
+    });
+  }
 }
