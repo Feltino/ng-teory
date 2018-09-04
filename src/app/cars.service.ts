@@ -1,19 +1,28 @@
+import { ConsoleService } from './console.service';
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class CarsService {
-    cars = [
-        {
-            name: 'Ford',
-            isSold: false
-        },
-        {
-            name: 'Mazda',
-            isSold: true
-        },
-        {
-            name: 'Mercedes',
-            isSold: false
-        }
-    ];
-    addCars() {
-        this.cars.push({isSold: false, name: name});
+
+  constructor(private consoleService: ConsoleService) {}
+
+  cars = [
+    {
+      name: 'Ford',
+      isSold: false
+    },
+    {
+      name: 'Mazda',
+      isSold: true
+    },
+    {
+      name: 'Mercedes',
+      isSold: false
     }
+  ];
+
+  addCar(name: string) {
+    this.cars.push({isSold: false, name});
+    this.consoleService.log(`Машина ${name} была добавлена!`);
+  }
 }
